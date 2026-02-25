@@ -20,8 +20,8 @@ Before deploying, ensure you have:
 - Git repository with your code
 - MongoDB Atlas account (free tier available)
 - Accounts on deployment platforms:
-  - Backend: Render, Railway, or Heroku
-  - Frontend: Vercel or Netlify
+  - Backend: Render (recommended), Railway, or Heroku
+  - Frontend: Render (recommended), Vercel, or Netlify
 
 ## Environment Variables
 
@@ -177,7 +177,7 @@ ENFORCE_HTTPS=true
 
 ## Frontend Deployment
 
-### Option 1: Deploy to Vercel (Recommended)
+### Deploy to Render
 
 #### Step 1: Prepare Repository
 
@@ -189,12 +189,48 @@ ENFORCE_HTTPS=true
    }
    ```
 
-#### Step 2: Create Vercel Account
+#### Step 2: Create Render Static Site
+
+1. Go to [Render](https://render.com)
+2. Click "New +" → "Static Site"
+3. Connect your repository
+
+#### Step 3: Configure the Static Site
+
+Configure the service:
+- **Name**: `task-management-frontend`
+- **Region**: Choose closest to your users
+- **Branch**: `main` or `master`
+- **Root Directory**: `frontend`
+- **Build Command**: `npm install && npm run build`
+- **Publish Directory**: `dist`
+
+#### Step 4: Add Environment Variables
+
+In the "Environment" section:
+
+```
+VITE_API_URL=https://your-backend.onrender.com
+```
+
+#### Step 5: Deploy
+
+1. Click "Create Static Site"
+2. Wait for deployment to complete (2-5 minutes)
+3. Note your frontend URL: `https://your-app.onrender.com`
+
+#### Step 6: Update Backend FRONTEND_URL
+
+Go back to your backend deployment (Render) and update the `FRONTEND_URL` environment variable with your frontend Render URL.
+
+### Alternative: Deploy to Vercel
+
+#### Step 1: Create Vercel Account
 
 1. Go to [Vercel](https://vercel.com)
 2. Sign up and connect your Git provider
 
-#### Step 3: Import Project
+#### Step 2: Import Project
 
 1. Click "Add New..." → "Project"
 2. Import your repository
@@ -204,7 +240,7 @@ ENFORCE_HTTPS=true
    - **Build Command**: `npm run build`
    - **Output Directory**: `dist`
 
-#### Step 4: Add Environment Variables
+#### Step 3: Add Environment Variables
 
 In the "Environment Variables" section:
 
@@ -212,17 +248,17 @@ In the "Environment Variables" section:
 VITE_API_URL=https://your-backend.onrender.com
 ```
 
-#### Step 5: Deploy
+#### Step 4: Deploy
 
 1. Click "Deploy"
 2. Wait for deployment to complete (2-5 minutes)
 3. Note your frontend URL: `https://your-app.vercel.app`
 
-#### Step 6: Update Backend FRONTEND_URL
+#### Step 5: Update Backend FRONTEND_URL
 
 Go back to your backend deployment (Render) and update the `FRONTEND_URL` environment variable with your Vercel URL.
 
-### Option 2: Deploy to Netlify
+### Alternative: Deploy to Netlify
 
 #### Step 1: Create Netlify Account
 
