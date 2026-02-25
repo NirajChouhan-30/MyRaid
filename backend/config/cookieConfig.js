@@ -8,10 +8,12 @@
  * @returns {Object} Cookie options
  */
 function getCookieOptions() {
+  const isProduction = process.env.NODE_ENV === 'production';
+  
   return {
     httpOnly: true, // Prevents JavaScript access to cookie
-    secure: process.env.NODE_ENV === 'production', // HTTPS only in production
-    sameSite: 'strict', // CSRF protection
+    secure: isProduction, // HTTPS only in production
+    sameSite: isProduction ? 'none' : 'lax', // 'none' required for cross-site cookies in production
     maxAge: 24 * 60 * 60 * 1000, // 24 hours
     path: '/' // Cookie available for all paths
   };
@@ -22,10 +24,12 @@ function getCookieOptions() {
  * @returns {Object} Cookie options for clearing
  */
 function getClearCookieOptions() {
+  const isProduction = process.env.NODE_ENV === 'production';
+  
   return {
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'strict',
+    secure: isProduction,
+    sameSite: isProduction ? 'none' : 'lax',
     path: '/'
   };
 }
