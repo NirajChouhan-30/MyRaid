@@ -1,0 +1,27 @@
+# Kiro IDE folder
+.kiro/
+
+# VS Code settings
+.vscode/
+
+# PDF files
+*.pdf
+Full_Stack_Assignment_Advanced_260225_013337.pdf
+
+# Environment variables
+.env
+.env.local
+
+# Node modules
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
