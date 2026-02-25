@@ -143,26 +143,6 @@ cd frontend
 npm test
 ```
 
-### Linting
-
-**Frontend:**
-```bash
-cd frontend
-npm run lint
-```
-
-## Deployment
-
-For detailed deployment instructions, see [DEPLOYMENT.md](./DEPLOYMENT.md).
-
-### Quick Deployment Overview
-
-1. **Database**: Set up MongoDB Atlas (free tier)
-2. **Backend**: Deploy to Render, Railway, or Heroku
-3. **Frontend**: Deploy to Vercel or Netlify
-
-See the deployment guide for step-by-step instructions.
-
 ## Security Features
 
 - Passwords hashed with bcrypt
@@ -172,40 +152,3 @@ See the deployment guide for step-by-step instructions.
 - Security headers with Helmet
 - HTTPS enforcement in production
 - Protection against common vulnerabilities (XSS, CSRF, injection)
-
-## Documentation
-
-- [Backend README](./backend/README.md) - Backend setup and API documentation
-- [Frontend README](./frontend/README.md) - Frontend setup and component documentation
-- [Deployment Guide](./DEPLOYMENT.md) - Production deployment instructions
-
-## Requirements
-
-This application was built according to the specifications in:
-- [Requirements Document](./.kiro/specs/task-management-app/requirements.md)
-- [Design Document](./.kiro/specs/task-management-app/design.md)
-- [Implementation Tasks](./.kiro/specs/task-management-app/tasks.md)
-
-## License
-
-MIT
-
-## Support
-
-For issues and questions:
-1. Check the documentation in the respective README files
-2. Review the deployment guide for deployment-specific issues
-3. Check the health endpoint to verify backend status
-4. Review browser console and network tab for frontend issues
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## Acknowledgments
-
-Built with modern web development best practices and security standards.
